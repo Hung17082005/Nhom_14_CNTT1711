@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <menuitem
-            id="menu_root"
-            name="Quản Lý Lương"
-            sequence="0"/>
-          
         <menuitem name="Bảng lương" 
             id="menu_hr_phieu_luong" 
-            parent="menu_root" 
+            parent="nhan_su.menu_payroll_root" 
             sequence="1"
             action="action_hr_phieu_luong"
         />
-
-    </data>
+        
+        </data>
 </odoo>

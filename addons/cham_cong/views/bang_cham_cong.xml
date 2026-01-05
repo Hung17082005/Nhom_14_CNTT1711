@@ -21,7 +21,6 @@
                             <field name="trang_thai"/>
                             <field name="loai_don"/>
                             <field name="thoi_gian_xin"/>
-                        <field name="tong_gio_lam" widget="float_time"/>
                         </group>
                     </sheet>
                 </form>
@@ -45,7 +44,6 @@
                     <field name="trang_thai"/>
                     <field name="loai_don"/>
                     <field name="thoi_gian_xin"/>
-                    <field name="tong_gio_lam" widget="float_time"/>
                 </tree>
             </field>
         </record>
@@ -66,7 +64,6 @@
                     <field name="trang_thai"/>
                     <field name="loai_don"/>
                     <field name="thoi_gian_xin"/>
-                    <field name="tong_gio_lam" widget="float_time"/>
                 </search>
             </field>
         </record>

@@ -22,9 +22,9 @@
     # any module necessary for this one to work correctly
     'depends': [
         'base',
+        'nhan_su',
         'cham_cong',
-        'mail', 
-
+        'mail',
     ],
 
     # always loaded

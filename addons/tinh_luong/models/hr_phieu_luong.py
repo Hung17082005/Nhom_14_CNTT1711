@@ -25,6 +25,13 @@ class PhieuLuong(models.Model):
     
     tien_phat = fields.Float(string="Tiền phạt muộn", compute="_compute_thanh_tien")
     thuc_linh = fields.Float(string="Thực lĩnh", compute="_compute_thanh_tien", store=True, tracking=True)
+    
+
+    line_ids = fields.One2many(
+        'bang_cham_cong', # Tên model bảng chấm công 
+        compute="_compute_du_lieu_cham_cong", # Dùng chung hàm với dữ liệu tổng để tối ưu
+        string="Chi tiết chấm công"
+    )
 
     @api.depends('nhan_vien_id', 'thang', 'nam')
     def _compute_name(self):
@@ -57,3 +64,35 @@ class PhieuLuong(models.Model):
             don_gia_gio = rec.luong_co_ban / 208
             rec.tien_phat = rec.phut_muon * 2000 # Ví dụ phạt 2k/phút
             rec.thuc_linh = (rec.tong_gio_lam * don_gia_gio) - rec.tien_phat
+
+    @api.depends('nhan_vien_id', 'thang', 'nam')
+    def _compute_du_lieu_cham_cong(self):
+        for rec in self:
+            # BẮT BUỘC: Gán giá trị mặc định ban đầu là rỗng cho trường One2many
+            rec.line_ids = self.env['bang_cham_cong'] 
+            
+            if rec.nhan_vien_id and rec.thang and rec.nam:
+                try:
+                    # Xác định ngày đầu và cuối tháng
+                    ngay_dau = datetime(rec.nam, int(rec.thang), 1).date()
+                    ngay_cuoi = datetime(rec.nam, int(rec.thang), calendar.monthrange(rec.nam, int(rec.thang))[1]).date()
+                    
+                    # Tìm dữ liệu bên module cham_cong
+                    records = self.env['bang_cham_cong'].search([
+                        ('nhan_vien_id', '=', rec.nhan_vien_id.id),
+                        ('ngay_cham_cong', '>=', ngay_dau),
+                        ('ngay_cham_cong', '<=', ngay_cuoi)
+                    ])
+                    
+                    # Gán danh sách các dòng chấm công tìm được
+                    rec.line_ids = records
+                    
+                    # Tính toán số liệu tổng
+                    rec.tong_gio_lam = sum(records.mapped('tong_gio_lam'))
+                    rec.phut_muon = sum(records.mapped('phut_di_muon'))
+                except Exception:
+                    rec.tong_gio_lam = 0
+                    rec.phut_muon = 0
+            else:
+                rec.tong_gio_lam = 0
+                rec.phut_muon = 0

@@ -7,19 +7,34 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Bảng chấm công</div>
-                        <group col="4" string="Thông tin chung">
-                            <field name="nhan_vien_id"/>
+                        <div class="oe_read_only" style="font-size:25px; font-weight: bold; margin-bottom: 20px;">Bảng chấm công</div>
+                        <group string="Thông tin chung" col="4">
+                            <field name="nhan_vien_id" options="{'no_create': True}"/>
                             <field name="ngay_cham_cong"/>
                             <field name="ca_lam"/>
+                            <field name="tong_gio_lam" readonly="1" style="font-weight: bold; color: #28a745;"/>
+                        </group>
+                        
+                        <group string="Chi tiết thời gian" col="4">
                             <field name="gio_vao_ca"/>
                             <field name="gio_ra_ca"/>
                             <field name="gio_vao"/>
                             <field name="gio_ra"/>
-                            <field name="phut_di_muon"/>
-                            <field name="phut_ve_som"/>
-                            <field name="trang_thai"/>
-                            <field name="loai_don"/>
+                        </group>
+
+                        <group string="Vi phạm và Đơn từ" col="4">
+                            <field name="phut_di_muon" decoration-danger="phut_di_muon > 0"/>
+                            <field name="phut_ve_som" decoration-danger="phut_ve_som > 0"/>
+                            <field name="trang_thai" widget="badge" 
+                                   decoration-success="trang_thai == 'di_lam'" 
+                                   decoration-info="trang_thai == 'vang_mat_co_phep'" 
+                                   decoration-danger="trang_thai == 'vang_mat'"
+                                   decoration-warning="trang_thai in ('di_muon', 've_som', 'di_muon_ve_som')"/>
+                            <newline/>
+                            <field name="loai_don" widget="badge" decoration-muted="not loai_don"/>
+                            <field name="trang_thai_duyet_don" widget="badge" 
+                                   decoration-success="trang_thai_duyet_don == 'da_duyet'" 
+                                   decoration-info="trang_thai_duyet_don == 'cho_duyet'"/>
                             <field name="thoi_gian_xin"/>
                         </group>
                     </sheet>
@@ -31,19 +46,25 @@
             <field name="name">bang_cham_cong.tree</field>
             <field name="model">bang_cham_cong</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree decoration-danger="trang_thai == 'vang_mat'" 
+                      decoration-success="trang_thai == 'di_lam' or trang_thai == 'vang_mat_co_phep'"
+                      decoration-warning="trang_thai in ('di_muon', 've_som', 'di_muon_ve_som')">
                     <field name="nhan_vien_id"/>
                     <field name="ngay_cham_cong"/>
                     <field name="ca_lam"/>
-                    <field name="gio_vao_ca"/>
-                    <field name="gio_ra_ca"/>
-                    <field name="gio_vao"/>
-                    <field name="gio_ra"/>
-                    <field name="phut_di_muon"/>
-                    <field name="phut_ve_som"/>
-                    <field name="trang_thai"/>
-                    <field name="loai_don"/>
-                    <field name="thoi_gian_xin"/>
+                    <field name="gio_vao" string="Giờ vào"/>
+                    <field name="gio_ra" string="Giờ ra"/>
+                    <field name="tong_gio_lam" sum="Tổng giờ làm"/>
+                    <field name="phut_di_muon" sum="Tổng phút muộn"/>
+                    <field name="phut_ve_som" sum="Tổng phút về sớm"/>
+                    <field name="trang_thai" widget="badge"
+                           decoration-success="trang_thai == 'di_lam'"
+                           decoration-info="trang_thai == 'vang_mat_co_phep'"
+                           decoration-danger="trang_thai == 'vang_mat'"
+                           decoration-warning="trang_thai in ('di_muon', 've_som', 'di_muon_ve_som')"/>
+                    <field name="trang_thai_duyet_don" string="Duyệt đơn" widget="badge"
+                           decoration-success="trang_thai_duyet_don == 'da_duyet'"
+                           decoration-info="trang_thai_duyet_don == 'cho_duyet'"/>
                 </tree>
             </field>
         </record>
@@ -55,15 +76,16 @@
                     <field name="nhan_vien_id"/>
                     <field name="ngay_cham_cong"/>
                     <field name="ca_lam"/>
-                    <field name="gio_vao_ca"/>
-                    <field name="gio_ra_ca"/>
-                    <field name="gio_vao"/>
-                    <field name="gio_ra"/>
-                    <field name="phut_di_muon"/>
-                    <field name="phut_ve_som"/>
                     <field name="trang_thai"/>
-                    <field name="loai_don"/>
-                    <field name="thoi_gian_xin"/>
+                    <filter string="Vắng mặt" name="filter_vang_mat" domain="[('trang_thai', '=', 'vang_mat')]"/>
+                    <filter string="Đi muộn/Về sớm" name="filter_vi_pham" domain="[('trang_thai', 'in', ('di_muon', 've_som', 'di_muon_ve_som'))]"/>
+                    <separator/>
+                    <filter string="Đã duyệt đơn" name="filter_da_duyet" domain="[('trang_thai_duyet_don', '=', 'da_duyet')]"/>
+                    <group expand="0" string="Gom nhóm theo">
+                        <filter string="Nhân viên" name="group_by_nv" context="{'group_by': 'nhan_vien_id'}"/>
+                        <filter string="Trạng thái" name="group_by_trang_thai" context="{'group_by': 'trang_thai'}"/>
+                        <filter string="Ngày" name="group_by_ngay" context="{'group_by': 'ngay_cham_cong'}"/>
+                    </group>
                 </search>
             </field>
         </record>
@@ -73,6 +95,11 @@
             <field name="res_model">bang_cham_cong</field>
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="bang_cham_cong_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Chưa có dữ liệu chấm công.
+                </p>
+            </field>
         </record>
     </data>
 </odoo>

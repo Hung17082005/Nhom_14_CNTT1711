@@ -9,7 +9,7 @@ class DonTu(models.Model):
     nhan_vien_id = fields.Many2one('nhan_vien', string="Nhân viên", required=True)
     ngay_lam_don = fields.Date("Ngày làm đơn", required=True, default=fields.Date.today)
     ngay_ap_dung = fields.Date("Ngày áp dụng", required=True)
-    
+    ly_do = fields.Text("Lý do xin đơn")
     trang_thai_duyet = fields.Selection([
         ('cho_duyet', 'Chờ duyệt'),
         ('da_duyet', 'Đã duyệt'),

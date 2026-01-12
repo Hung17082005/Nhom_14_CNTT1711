@@ -16,6 +16,9 @@
                             <field name="loai_don"/>
                             <field name="thoi_gian_xin"/>
                         </group>
+                        <group string="Chi tiết">
+                            <field name="ly_do" placeholder="Nhập lý do cụ thể tại đây..."/>
+                        </group>
                     </sheet>
                 </form>
             </field>
@@ -32,7 +35,7 @@
                     <field name="trang_thai_duyet"/>
                     <field name="loai_don"/>
                     <field name="thoi_gian_xin"/>
-                </tree>
+                    <field name="ly_do"/> </tree>
             </field>
         </record>
 
@@ -41,13 +44,12 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="nhan_vien_id"/>
-                        <field name="nhan_vien_id"/>
-                        <field name="ngay_lam_don"/>
-                        <field name="ngay_ap_dung"/>
-                        <field name="trang_thai_duyet"/>
-                        <field name="loai_don"/>
-                        <field name="thoi_gian_xin"/>
-                </search>
+                    <field name="ngay_lam_don"/>
+                    <field name="ngay_ap_dung"/>
+                    <field name="trang_thai_duyet"/>
+                    <field name="loai_don"/>
+                    <field name="thoi_gian_xin"/>
+                    <field name="ly_do"/> </search>
             </field>
         </record>
 
@@ -55,9 +57,7 @@
             <field name="name">Đơn từ</field>
             <field name="res_model">don_tu</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref = "don_tu_search"/>
+            <field name="search_view_id" ref="don_tu_search"/>
         </record>
     </data>
 </odoo>
-        
-    

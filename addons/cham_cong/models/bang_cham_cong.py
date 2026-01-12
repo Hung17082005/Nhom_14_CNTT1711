@@ -47,7 +47,6 @@ class BangChamCong(models.Model):
                 don = self.env['don_tu'].search([
                     ('nhan_vien_id', '=', record.nhan_vien_id.id),
                     ('ngay_ap_dung', '=', record.ngay_cham_cong),
-                    ('trang_thai_duyet', '=', 'da_duyet')
                 ], limit=1)
                 record.don_tu_id = don.id if don else False
 

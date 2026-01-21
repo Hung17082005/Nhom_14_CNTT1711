@@ -144,12 +144,12 @@ streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
     <tr>
       <td>Triệu Vũ Hà My</td>
       <td>1571020181</td>
-      <td>Viết báo cáo</td>
+      <td>Phát triển dự án</td>
     </tr>
     <tr>
       <td>Nguyễn Trung Kiên</td>
       <td>1671020172</td>
-      <td>Viết báo cáo</td>
+      <td>Phát triển dự án</td>
     </tr>
   </tbody>
 </table>

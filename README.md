@@ -85,5 +85,9 @@ Ngoài ra có thể thêm mổ số parameters như:
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
+# 5. Khởi chạy Dashboard AI (Streamlit)
+```
+streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
+```
 Hoàn tất
     

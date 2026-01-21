@@ -93,7 +93,6 @@ streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
 # 2. GIAO DIỆN VÀ CÁC CHỨC NĂNG HỆ THỐNG
 
 <div align="center">
-    Giao diện nhân sự
     <img src="README/nhan_su.jpg" alt="Nhân sự">
 
 </div>

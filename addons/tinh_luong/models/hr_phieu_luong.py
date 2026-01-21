@@ -82,7 +82,7 @@ class PhieuLuong(models.Model):
             rec.phu_cap_thuc_te = 0.0
             rec.tien_phat = 0.0
             rec.thuc_linh = 0.0
-            rec.bhxh = 0.0  # Sửa lỗi bhxh tại đây
+            rec.bhxh = 0.0  
             rec.bhyt = 0.0
             rec.bhtn = 0.0
             rec.tong_bao_hiem = 0.0

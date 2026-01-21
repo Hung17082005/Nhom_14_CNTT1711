@@ -1,3 +1,18 @@
+<h1 align="center">
+THỰC TẬP CNTT7: THỰC TẬP DOANH NGHIỆP - QUẢN LÝ CHẤM CÔNG VÀ TÍNH LƯƠNG
+</h1>
+<div align="center">
+  <img src="README/logoDaiNam.png" alt="DaiNam University Logo" width="250">
+  <img src="README/fitdnu_logo.png" alt="KHOA CÔNG NGHỆ THỐNG TIN" width="250">
+  <img src="README/aiotlab_logo.png" alt="AIOT Lab DNU Logo" width="250">
+</div>
+<br>
+<div align="center">
+
+[![FIT DNU](https://img.shields.io/badge/-FIT%20DNU-28a745?style=for-the-badge)](https://fitdnu.net/)
+[![DAINAM UNIVERSITY](https://img.shields.io/badge/-DAINAM%20UNIVERSITY-dc3545?style=for-the-badge)](https://dainam.edu.vn/vi)
+
+</div>
 ---
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)

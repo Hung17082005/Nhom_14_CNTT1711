@@ -92,9 +92,9 @@ streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
 
 ## 🚀 2. GIAO DIỆN CÁC CHỨC NĂNG
 ### Giao diện nhân sự
-<img width="1902" height="931" alt="image" src="image.png" />
+<img width="1902" height="931" alt="image" src="README/image.png" />
 ### Giao diện chấm công
-<img width="1885" height="935" alt="image" src="img1.jpg" />
+<img width="1885" height="935" alt="image" src="README/img1.jpg" />
 
 
 Hoàn tất

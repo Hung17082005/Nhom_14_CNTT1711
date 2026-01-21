@@ -90,7 +90,7 @@ Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ đ
 streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
 ```
 
-## 🚀 2. GIAO DIỆN CÁC CHỨC NĂNG
+# 🚀 2. GIAO DIỆN CÁC CHỨC NĂNG
 ### Giao diện nhân sự
 <img width="1902" height="931" alt="image" src="README/image.png" />
 
@@ -104,5 +104,5 @@ streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
 <img width="1885" height="935" alt="image" src="README/img3.jpg" />
 
 
-Hoàn tất
+
     

@@ -90,11 +90,12 @@ Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ đ
 streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
 ```
 
-# 2. GIAO DIỆN VÀ CÁC CHỨC NĂNG HỆ THỐNG
+## 🚀 2. GIAO DIỆN CÁC CHỨC NĂNG
+### Giao diện nhân sự
+<img width="1902" height="931" alt="image" src="image.png" />
+### Giao diện chấm công
+<img width="1885" height="935" alt="image" src="img1.jpg" />
 
-<div align="center">
-    <img src="README/nhan_su.jpg" alt="Nhân sự">
 
-</div>
 Hoàn tất
     

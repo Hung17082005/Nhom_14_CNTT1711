@@ -126,6 +126,7 @@ streamlit run dashboard_app.py chạy lệnh để khởi động Dashboard
 </center>
 
 <center>
+<p>Sinh viên thực hiện:</p>
 <table>
   <thead>
     <tr>

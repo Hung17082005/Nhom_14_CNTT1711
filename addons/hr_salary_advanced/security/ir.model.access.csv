@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_employee,hr.attendance employee,hr_attendance.model_hr_attendance,base.group_user,1,1,1,0
+access_hr_attendance_manager,hr.attendance manager,hr_attendance.model_hr_attendance,hr.group_hr_manager,1,1,1,1
+
+access_hr_shift_register_employee,hr.shift.register employee,model_hr_shift_register,base.group_user,1,1,1,0
+access_hr_shift_register_manager,hr.shift.register manager,model_hr_shift_register,hr.group_hr_manager,1,1,1,1
+access_hr_shift_detail_employee,hr.shift.detail employee,model_hr_shift_detail,base.group_user,1,1,1,0
+access_hr_shift_detail_manager,hr.shift.detail manager,model_hr_shift_detail,hr.group_hr_manager,1,1,1,1
+
+access_bang_luong_employee,bang.luong employee,model_bang_luong,base.group_user,1,0,0,0
+access_bang_luong_manager,bang.luong manager,model_bang_luong,hr.group_hr_manager,1,1,1,1
+access_bang_luong_line_employee,bang.luong.line employee,model_bang_luong_line,base.group_user,1,0,0,0
+access_bang_luong_line_manager,bang.luong.line manager,model_bang_luong_line,hr.group_hr_manager,1,1,1,1
+
+access_payslip_wizard,payslip.wizard,model_payslip_wizard,hr.group_hr_manager,1,1,1,0

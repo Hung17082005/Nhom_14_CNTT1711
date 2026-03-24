@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- hr.shift.register -->
+
+    <record id="view_hr_shift_register_tree" model="ir.ui.view">
+        <field name="name">hr.shift.register.tree</field>
+        <field name="model">hr.shift.register</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="month"/>
+                <field name="total_days"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_shift_register_form" model="ir.ui.view">
+        <field name="name">hr.shift.register.form</field>
+        <field name="model">hr.shift.register</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_submit" string="Gửi" type="object" class="oe_highlight" states="draft"/>
+                    <button name="action_approve" string="Duyệt" type="object" class="oe_highlight" states="submitted"/>
+                    <button name="action_draft" string="Quay Lại Nháp" type="object" states="submitted,approved"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="1"/>
+                            <field name="month" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="total_days" widget="integer"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="shifts" string="📅 Ca Làm Việc">
+                            <field name="shift_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="date"/>
+                                    <field name="shift_type"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_shift_detail_calendar" model="ir.ui.view">
+        <field name="name">hr.shift.detail.calendar</field>
+        <field name="model">hr.shift.detail</field>
+        <field name="arch" type="xml">
+            <calendar date_start="date" color="shift_type" string="Lịch Ca Làm">
+                <field name="employee_id"/>
+                <field name="shift_type"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_hr_shift_register_search" model="ir.ui.view">
+        <field name="name">hr.shift.register.search</field>
+        <field name="model">hr.shift.register</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="month"/>
+                <separator/>
+                <filter name="draft" string="Bản Nháp" domain="[('state', '=', 'draft')]"/>
+                <filter name="submitted" string="Đã Gửi" domain="[('state', '=', 'submitted')]"/>
+                <filter name="approved" string="Đã Duyệt" domain="[('state', '=', 'approved')]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

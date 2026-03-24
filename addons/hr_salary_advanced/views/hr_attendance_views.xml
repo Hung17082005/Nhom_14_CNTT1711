@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override hr.attendance views -->
+    
+    <!-- Tree view for attendance with late indication -->
+    <record id="view_hr_attendance_tree_advanced" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.advanced</field>
+        <field name="model">hr.attendance</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="is_late">
+                <field name="employee_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="is_late" widget="boolean"/>
+                <field name="late_minutes"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for attendance -->
+    <record id="view_hr_attendance_form_advanced" model="ir.ui.view">
+        <field name="name">hr.attendance.form.advanced</field>
+        <field name="model">hr.attendance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="1"/>
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                        </group>
+                        <group>
+                            <field name="is_late" readonly="1"/>
+                            <field name="late_minutes" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view for attendance -->
+    <record id="view_hr_attendance_search_advanced" model="ir.ui.view">
+        <field name="name">hr.attendance.search.advanced</field>
+        <field name="model">hr.attendance</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="check_in"/>
+                <separator/>
+                <filter name="late" string="Đi Muộn" domain="[('is_late', '=', True)]"/>
+                <filter name="not_late" string="Không Muộn" domain="[('is_late', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

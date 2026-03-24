@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- ===== VIEWS CHO bang.luong ===== -->
+    
+    <!-- Tree View: Danh sách phiếu lương -->
+    <record id="bang_luong_tree_view" model="ir.ui.view">
+        <field name="name">bang.luong.tree</field>
+        <field name="model">bang.luong</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách phiếu lương" 
+                  decoration-muted="state == 'cancel'"
+                  decoration-success="state == 'done'">
+                <field name="month" />
+                <field name="employee_id" />
+                <field name="total_work_hours" />
+                <field name="total_late_minutes" />
+                <field name="tong_cong" sum="Tổng cộng" />
+                <field name="total_late_penalty" sum="Phạt muộn" />
+                <field name="total_insurance" sum="Bảo hiểm" />
+                <field name="tong_tru" sum="Tổng trừ" />
+                <field name="thuc_lanh" sum="Thực lãnh" />
+                <field name="state" widget="badge" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View: Chi tiết phiếu lương -->
+    <record id="bang_luong_form_view" model="ir.ui.view">
+        <field name="name">bang.luong.form</field>
+        <field name="model">bang.luong</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Phiếu lương">
+                <header>
+                    <button name="action_generate_lines" type="object" 
+                            string="🔄 Tính lương" class="oe_highlight"
+                            states="draft" />
+                    <button name="action_confirm" type="object" 
+                            string="✓ Xác nhận" class="oe_highlight"
+                            states="draft" />
+                    <button name="action_draft" type="object" 
+                            string="← Quay lại bản nháp"
+                            states="done,cancel" />
+                    <button name="action_cancel" type="object" 
+                            string="✗ Hủy"
+                            states="draft" />
+                    <field name="state" widget="statusbar" nolabel="1" />
+                </header>
+                
+                <sheet>
+                    <!-- Tiêu đề -->
+                    <div class="oe_title">
+                        <h1>
+                            Phiếu lương - 
+                            <field name="month" class="oe_inline" 
+                                   placeholder="YYYY-MM" />
+                        </h1>
+                    </div>
+
+                    <!-- Thông tin chung -->
+                    <group>
+                        <group>
+                            <field name="employee_id" />
+                            <field name="created_date" readonly="1" />
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+
+                    <!-- Thống kê chấm công -->
+                    <notebook>
+                        <page string="📊 Thống kê chấm công">
+                            <group>
+                                <group>
+                                    <field name="total_work_hours" readonly="1" />
+                                    <field name="total_late_minutes" readonly="1" />
+                                </group>
+                                <group>
+                                    <field name="total_late_penalty" readonly="1" />
+                                    <field name="total_insurance" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tóm tắt tiền lương -->
+                        <page string="💰 Tóm tắt lương">
+                            <group>
+                                <div class="alert alert-info">
+                                    <table class="table table-sm">
+                                        <tr style="background-color: #f0f0f0;">
+                                            <td><strong>Tổng cộng:</strong></td>
+                                            <td><strong style="color: green;">
+                                                <field name="tong_cong" widget="monetary" class="oe_inline" />
+                                            </strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tổng trừ:</strong></td>
+                                            <td><strong style="color: red;">
+                                                <field name="tong_tru" widget="monetary" class="oe_inline" />
+                                            </strong></td>
+                                        </tr>
+                                        <tr style="background-color: #e3f2fd; font-size: 18px;">
+                                            <td><strong>THỰC LÃNH:</strong></td>
+                                            <td><strong style="color: #1976d2;">
+                                                <field name="thuc_lanh" widget="monetary" class="oe_inline" />
+                                            </strong></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </group>
+                        </page>
+
+                        <!-- Chi tiết lương -->
+                        <page string="📝 Chi tiết lương">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="top" string="Các khoản lương">
+                                    <field name="sequence" widget="handle" />
+                                    <field name="name" />
+                                    <field name="type" />
+                                    <field name="amount" sum="Tổng" />
+                                    <field name="description" />
+                                </tree>
+                            </field>
+                        </page>
+
+                        <!-- Ghi chú -->
+                        <page string="📌 Ghi chú">
+                            <field name="notes" nolabel="1" placeholder="Thêm ghi chú nếu cần..." />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View: Lọc phiếu lương -->
+    <record id="bang_luong_search_view" model="ir.ui.view">
+        <field name="name">bang.luong.search</field>
+        <field name="model">bang.luong</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Tìm kiếm phiếu lương">
+                <field name="employee_id" />
+                <field name="month" />
+                <separator />
+                <filter name="draft" string="Bản nháp" domain="[('state', '=', 'draft')]" />
+                <filter name="done" string="Hoàn tất" domain="[('state', '=', 'done')]" />
+                <filter name="cancel" string="Hủy" domain="[('state', '=', 'cancel')]" />
+            </search>
+        </field>
+    </record>
+
+    <!-- ===== VIEWS CHO bang.luong.line ===== -->
+    
+    <!-- Tree View: Chi tiết lương (inline) -->
+    <record id="bang_luong_line_tree_view" model="ir.ui.view">
+        <field name="name">bang.luong.line.tree</field>
+        <field name="model">bang.luong.line</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Chi tiết lương">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="type" />
+                <field name="amount" sum="Tổng" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View: Chi tiết dòng lương -->
+    <record id="bang_luong_line_form_view" model="ir.ui.view">
+        <field name="name">bang.luong.line.form</field>
+        <field name="model">bang.luong.line</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Chi tiết lương">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="type" />
+                        </group>
+                        <group>
+                            <field name="amount" />
+                            <field name="sequence" />
+                        </group>
+                    </group>
+                    <field name="description" nolabel="1" placeholder="Ghi chú..." />
+                    <field name="bang_luong_id" invisible="1" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ===== ACTIONS ===== -->
+    
+    <!-- Action: Mở danh sách phiếu lương -->
+    <record id="action_bang_luong" model="ir.actions.act_window">
+        <field name="name">Phiếu lương</field>
+        <field name="res_model">bang.luong</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" 
+               eval="[(5,0,0), (0,0,{'view_mode':'tree', 'view_id': ref('bang_luong_tree_view')}), (0,0,{'view_mode':'form', 'view_id': ref('bang_luong_form_view')})]" />
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nhấp để tạo phiếu lương mới
+            </p>
+            <p>
+                Quản lý phiếu lương của nhân viên với tính toán phạt đi muộn tự động.
+            </p>
+        </field>
+    </record>
+
+    <!-- ===== MENU ===== -->
+    
+    <!-- Menu item cho phiếu lương -->
+    <menuitem id="menu_bang_luong" name="Phiếu lương" 
+              parent="hr.menu_hr_payroll" 
+              action="action_bang_luong" 
+              sequence="10" />
+
+</odoo>

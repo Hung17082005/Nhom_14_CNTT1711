@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form View: Cấu hình tính lương và chấm công -->
+    <record id="res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id">base.res_config_settings_view_form</field>
+        <field name="type">form</field>
+        <field name="priority">90</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='app_settings']" position="inside">
+                <!-- Tab Chấm công -->
+                <block title="Chấm công" name="attendance_block">
+                    <setting>
+                        <field name="standard_check_in_time" />
+                        <div class="text-muted">
+                            Giờ check-in chuẩn để xác định đi muộn (format HH:MM)
+                        </div>
+                    </setting>
+
+                    <setting>
+                        <field name="lunch_start" />
+                        <div class="text-muted">
+                            Giờ bắt đầu nghỉ trưa (format HH:MM)
+                        </div>
+                    </setting>
+
+                    <setting>
+                        <field name="lunch_end" />
+                        <div class="text-muted">
+                            Giờ kết thúc nghỉ trưa (format HH:MM)
+                        </div>
+                    </setting>
+                </block>
+
+                <!-- Tab Phạt & Thưởng -->
+                <block title="Phạt và Thưởng" name="penalty_block">
+                    <setting>
+                        <field name="penalty_per_minute" />
+                        <div class="text-muted">
+                            Mức tiền phạt cho mỗi phút đi muộn (VND/phút)
+                        </div>
+                    </setting>
+
+                    <setting>
+                        <field name="penalty_early_checkout" />
+                        <div class="text-muted">
+                            Mức tiền phạt cho mỗi phút về sớm (VND/phút)
+                        </div>
+                    </setting>
+
+                    <setting>
+                        <field name="default_wage" />
+                        <div class="text-muted">
+                            Lương cơ bản mặc định khi nhân viên không có hợp đồng (VND)
+                        </div>
+                    </setting>
+                </block>
+
+                <!-- Tab Bảo hiểm -->
+                <block title="Bảo hiểm nhân viên" name="insurance_block">
+                    <setting>
+                        <field name="insurance_bhxh_rate" />
+                        <div class="text-muted">
+                            Tỷ lệ bảo hiểm xã hội (BHXH) - nhân viên đóng (%)
+                        </div>
+                    </setting>
+
+                    <setting>
+                        <field name="insurance_bhyt_rate" />
+                        <div class="text-muted">
+                            Tỷ lệ bảo hiểm y tế (BHYT) (%)
+                        </div>
+                    </setting>
+
+                    <setting>
+                        <field name="insurance_bhtn_rate" />
+                        <div class="text-muted">
+                            Tỷ lệ bảo hiểm thất nghiệp (BHTN) (%)
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

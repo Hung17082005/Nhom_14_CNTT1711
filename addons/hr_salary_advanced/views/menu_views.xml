@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Menu: HR Salary Advanced -->
+    <menuitem id="menu_hr_salary_advanced_root" name="HR Salary Advanced" parent="hr.menu_hr_root" sequence="25"/>
+
+    <!-- Submenu: Attendance -->
+    <menuitem id="menu_attendance" name="Chấm Công" parent="menu_hr_salary_advanced_root" sequence="10"/>
+    
+    <record id="action_hr_attendance_advanced" model="ir.actions.act_window">
+        <field name="name">Chấm Công</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hr_attendance_search_advanced"/>
+    </record>
+    
+    <menuitem id="menu_hr_attendance_action" name="Danh Sách Chấm Công" parent="menu_attendance" action="action_hr_attendance_advanced" sequence="10"/>
+
+    <!-- Submenu: Shift Registration -->
+    <menuitem id="menu_shift_register" name="Đăng Ký Ca" parent="menu_hr_salary_advanced_root" sequence="20"/>
+
+    <record id="action_hr_shift_register" model="ir.actions.act_window">
+        <field name="name">Đăng Ký Ca Làm</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.shift.register</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hr_shift_register_search"/>
+    </record>
+
+    <menuitem id="menu_hr_shift_register_action" name="Danh Sách Đăng Ký" parent="menu_shift_register" action="action_hr_shift_register" sequence="10"/>
+
+    <!-- Submenu: Payroll -->
+    <menuitem id="menu_payroll" name="Bảng Lương" parent="menu_hr_salary_advanced_root" sequence="30"/>
+
+    <record id="action_bang_luong" model="ir.actions.act_window">
+        <field name="name">Phiếu Lương</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bang.luong</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_bang_luong_search"/>
+    </record>
+
+    <menuitem id="menu_bang_luong_action" name="Phiếu Lương" parent="menu_payroll" action="action_bang_luong" sequence="10"/>
+
+    <!-- Create Payslips Wizard -->
+    <record id="action_create_payslips_wizard" model="ir.actions.act_window">
+        <field name="name">Tạo Phiếu Lương Hàng Loạt</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">payslip.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_create_payslips" name="Tạo Phiếu Lương" parent="menu_payroll" action="action_create_payslips_wizard" sequence="20"/>
+
+    <!-- Settings -->
+    <menuitem id="menu_hr_salary_settings" name="Cài Đặt" parent="menu_hr_salary_advanced_root" sequence="40"/>
+
+    <record id="action_hr_salary_settings" model="ir.actions.act_window">
+        <field name="name">Cài Đặt HR Salary Advanced</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_hr_salary_advanced_settings"/>
+    </record>
+
+    <menuitem id="menu_hr_salary_settings_action" name="Cài Đặt" parent="menu_hr_salary_settings" action="action_hr_salary_settings" sequence="10"/>
+
+</odoo>

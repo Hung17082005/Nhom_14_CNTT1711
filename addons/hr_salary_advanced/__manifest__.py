@@ -1,0 +1,27 @@
+{
+    'name': 'HR Salary Advanced',
+    'version': '15.0.1.0.0',
+    'category': 'Human Resources',
+    'summary': 'Advanced HR Salary Management with Shift Registration and Automatic Payroll Calculation',
+    'author': 'HR Team',
+    'license': 'LGPL-3',
+    'depends': [
+        'base',
+        'hr',
+        'hr_attendance',
+        'web',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/security.xml',
+        'views/menu_views.xml',
+        'views/hr_attendance_views.xml',
+        'views/hr_shift_register_views.xml',
+        'views/bang_luong_views.xml',
+        'views/config_settings_views.xml',
+        'wizards/payslip_wizard_views.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': False,
+}

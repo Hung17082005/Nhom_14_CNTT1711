@@ -1,5 +1,5 @@
 <h1 align="center">
-THỰC TẬP CNTT7: THỰC TẬP DOANH NGHIỆP - QUẢN LÝ CHẤM CÔNG VÀ TÍNH LƯƠNG
+QUẢN LÝ CHẤM CÔNG VÀ TÍNH LƯƠNG
 </h1>
 <div align="center">
   <img src="README/logoDaiNam.png" alt="DaiNam University Logo" width="250">
@@ -95,7 +95,7 @@ https://github.com/dinhtuananh188/TTDN-15-01-N5
 ## 1. Cài đặt công cụ, môi trường và các thư viện cần thiết
 
 ### 1.1. Clone project.
-git clone https://gitlab.com/anhlta/odoo-fitdnu.git
+git clone 
 git checkout 
 
 ### 1.2. cài đặt các thư viện cần thiết

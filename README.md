@@ -108,6 +108,7 @@ db_port = 5431
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
+<hr>
 ## 6. GIAO DIỆN CÁC CHỨC NĂNG
 
 
@@ -122,4 +123,4 @@ Giao diện chấm công
 Giao diện tính lương
 <img width="1919" height="1125" alt="image" src="https://github.com/user-attachments/assets/6f232caf-a7eb-49b1-8fc9-90f1df004dff" />
 
-
+</hr>

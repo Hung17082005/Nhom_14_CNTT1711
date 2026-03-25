@@ -32,7 +32,8 @@ QUẢN LÝ CHẤM CÔNG VÀ TÍNH LƯƠNG
 <div align="center">
 
 #  Poster
-<img src="README/Poster-n11.png" alt="Poster" width="200%">
+[Nhom14.pptx](https://github.com/user-attachments/files/26233961/Nhom14.pptx)
+
 
 </div>
 

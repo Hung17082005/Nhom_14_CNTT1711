@@ -111,19 +111,17 @@ db_port = 5431
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
-<hr>
+
 ## 6. GIAO DIỆN CÁC CHỨC NĂNG
 
 
 
-Giao diện nhân sự
+##Giao diện nhân sự
 <img width="1919" height="1131" alt="image" src="https://github.com/user-attachments/assets/a78006f3-5491-4203-ad9b-215f2af834b7" />
 
-
-Giao diện chấm công
+##Giao diện chấm công
 <img width="1919" height="1134" alt="image" src="https://github.com/user-attachments/assets/522adb0b-dd6d-499b-8688-798bf576d38e" />
 
-Giao diện tính lương
+##Giao diện tính lương
 <img width="1919" height="1125" alt="image" src="https://github.com/user-attachments/assets/6f232caf-a7eb-49b1-8fc9-90f1df004dff" />
 
-</hr>

@@ -114,7 +114,7 @@ Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ đ
 
 ## 6. GIAO DIỆN CÁC CHỨC NĂNG
 
-
+<div align="center">
 
 ##Giao diện nhân sự
 <img width="1919" height="1131" alt="image" src="https://github.com/user-attachments/assets/a78006f3-5491-4203-ad9b-215f2af834b7" />
@@ -124,4 +124,4 @@ Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ đ
 
 ##Giao diện tính lương
 <img width="1919" height="1125" alt="image" src="https://github.com/user-attachments/assets/6f232caf-a7eb-49b1-8fc9-90f1df004dff" />
-
+</div>

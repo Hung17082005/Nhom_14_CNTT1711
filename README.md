@@ -107,21 +107,21 @@ db_user = odoo
 db_port = 5431
 
 
-## 4. Chạy hệ thống và cài đặt các ứng dụng cần thiết
+##4. Chạy hệ thống và cài đặt các ứng dụng cần thiết
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
 
-## 6. GIAO DIỆN CÁC CHỨC NĂNG
+##5. GIAO DIỆN CÁC CHỨC NĂNG
 
-<div align="center">
+###Giao diện nhân sự
 
-##Giao diện nhân sự
-<img width="1919" height="1131" alt="image" src="https://github.com/user-attachments/assets/a78006f3-5491-4203-ad9b-215f2af834b7" />
+![z7654315076010_b982ac2d35d0843e599df3ab460b8a8c](https://github.com/user-attachments/assets/0bec4149-cc82-48d9-84e1-4d905d2c40d4)
 
-##Giao diện chấm công
-<img width="1919" height="1134" alt="image" src="https://github.com/user-attachments/assets/522adb0b-dd6d-499b-8688-798bf576d38e" />
+### Giao diện chấm công
 
-##Giao diện tính lương
+![z7654315075981_56614ba064ddf67c6d11fd7334be5653](https://github.com/user-attachments/assets/b05e6276-8e3e-45bb-bb0e-8f664bd82c04)
+
+### Giao diện tính lương
 <img width="1919" height="1125" alt="image" src="https://github.com/user-attachments/assets/6f232caf-a7eb-49b1-8fc9-90f1df004dff" />
-</div>
+

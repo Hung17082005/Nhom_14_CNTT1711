@@ -32,7 +32,7 @@ QUẢN LÝ CHẤM CÔNG VÀ TÍNH LƯƠNG
 <div align="center">
 
 #  Poster
-[Nhom14.pptx](https://github.com/user-attachments/files/26233961/Nhom14.pptx)
+https://docs.google.com/presentation/d/11QRaAdkQBiF35BvmHUZ_UeBkEfQZF3GJ/edit?usp=drive_link&ouid=107998008696554116146&rtpof=true&sd=true
 
 
 </div>

@@ -32,7 +32,8 @@ QUẢN LÝ CHẤM CÔNG VÀ TÍNH LƯƠNG
 <div align="center">
 
 #  Poster
-https://docs.google.com/presentation/d/11QRaAdkQBiF35BvmHUZ_UeBkEfQZF3GJ/edit?usp=drive_link&ouid=107998008696554116146&rtpof=true&sd=true
+<img width="559" height="820" alt="image" src="https://github.com/user-attachments/assets/3dafa6ab-2ac2-4a97-a4a8-dd334181d255" />
+
 
 
 </div>
